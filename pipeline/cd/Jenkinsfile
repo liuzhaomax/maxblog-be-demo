@@ -63,31 +63,23 @@ pipeline {
                 echo "--------------------- Version End ---------------------"
             }
         }
-//         // 语法格式检查
-//         stage("Lint") {
-//             steps {
-//                 echo "--------------------- Lint Start ---------------------"
-//                 script {
-//                     timeout(time: 15, unit: "MINUTES"){
-//                         goHome = tool "npm"
-//                         sh """
-//                             export GO_HOME=${goHome}
-//                             export PATH=\$GO_HOME/bin:\$PATH
-//                             ${goHome}/bin/npm config set registry https://registry.npmjs.org/
-//                             # ${goHome}/bin/npm install --max_old_space_size=1024
-//                             ${goHome}/bin/npm i --package-lock-only --max_old_space_size=1024
-//                             ${goHome}/bin/npm ci --max_old_space_size=1024
-//                             # ${goHome}/bin/npm install -g npm@6
-//                             # ${goHome}/bin/npm install --save-dev eslint
-//                             # ${goHome}/bin/npm install --save-dev eslint-plugin-react
-//                             ${goHome}/bin/npm run lint
-//                             # ${goHome}/bin/npm run lint:report
-//                         """
-//                     }
-//                 }
-//                 echo "--------------------- Lint End ---------------------"
-//             }
-//         }
+        // 语法格式检查
+        stage("Lint") {
+            steps {
+                echo "--------------------- Lint Start ---------------------"
+                script {
+                    timeout(time: 15, unit: "MINUTES"){
+                        goHome = tool "go"
+                        sh """
+                            export GO_HOME=${goHome}
+                            export PATH=\$GO_HOME/bin:\$PATH
+                            ${goHome}/bin/golangci-lint run ./...
+                        """
+                    }
+                }
+                echo "--------------------- Lint End ---------------------"
+            }
+        }
 //         // 构建
 //         stage("Build") {
 //             steps {
