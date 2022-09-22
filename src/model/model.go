@@ -3,7 +3,7 @@ package model
 import (
 	"github.com/google/wire"
 	"gorm.io/gorm"
-	"maxblog-be-template/src/pb"
+	"maxblog-be-demo/src/pb"
 )
 
 var ModelSet = wire.NewSet(

@@ -5,9 +5,9 @@ package app
 
 import (
 	"github.com/google/wire"
-	"maxblog-be-template/internal/core"
-	dataModel "maxblog-be-template/src/model"
-	dataService "maxblog-be-template/src/service"
+	"maxblog-be-demo/internal/core"
+	dataModel "maxblog-be-demo/src/model"
+	dataService "maxblog-be-demo/src/service"
 )
 
 func InitInjector() (*Injector, func(), error) {

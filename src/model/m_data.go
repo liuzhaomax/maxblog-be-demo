@@ -3,8 +3,8 @@ package model
 import (
 	"github.com/google/wire"
 	"gorm.io/gorm"
-	"maxblog-be-template/internal/core"
-	"maxblog-be-template/src/pb"
+	"maxblog-be-demo/internal/core"
+	"maxblog-be-demo/src/pb"
 )
 
 var DataSet = wire.NewSet(wire.Struct(new(MData), "*"))

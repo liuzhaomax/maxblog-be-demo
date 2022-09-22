@@ -7,9 +7,9 @@
 package app
 
 import (
-	"maxblog-be-template/internal/core"
-	"maxblog-be-template/src/model"
-	"maxblog-be-template/src/service"
+	"maxblog-be-demo/internal/core"
+	"maxblog-be-demo/src/model"
+	"maxblog-be-demo/src/service"
 )
 
 // Injectors from wire.go:

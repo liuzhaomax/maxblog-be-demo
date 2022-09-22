@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"flag"
-	"maxblog-be-template/internal/app"
+	"maxblog-be-demo/internal/app"
 )
 
 func main() {

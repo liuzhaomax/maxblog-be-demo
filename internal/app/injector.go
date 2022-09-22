@@ -3,7 +3,7 @@ package app
 import (
 	"github.com/google/wire"
 	"gorm.io/gorm"
-	"maxblog-be-template/src/service"
+	"maxblog-be-demo/src/service"
 )
 
 var InjectorSet = wire.NewSet(wire.Struct(new(Injector), "*"))

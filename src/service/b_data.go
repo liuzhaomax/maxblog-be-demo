@@ -3,9 +3,9 @@ package service
 import (
 	"context"
 	"github.com/google/wire"
-	"maxblog-be-template/internal/core"
-	"maxblog-be-template/src/model"
-	"maxblog-be-template/src/pb"
+	"maxblog-be-demo/internal/core"
+	"maxblog-be-demo/src/model"
+	"maxblog-be-demo/src/pb"
 )
 
 var DataSet = wire.NewSet(wire.Struct(new(BData), "*"))
