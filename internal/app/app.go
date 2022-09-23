@@ -69,7 +69,6 @@ func InitServer(ctx context.Context, service *service.BData) func() {
 	server := grpc.NewServer()
 	pb.RegisterDataServiceServer(server, service)
 	go func() {
-		logger.Warn(addr)
 		listen, err := net.Listen("tcp", addr)
 		if err != nil {
 			logger.WithFields(logger.Fields{
