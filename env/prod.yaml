@@ -7,7 +7,7 @@ app:
   version: "0.1.0"
 
 server:
-  host: "127.0.0.1"
+  host: "10.192.0.5"
   port: 9304
   shutdown_timeout: 10
   tags:
@@ -23,7 +23,7 @@ db:
   max_idle_conns: 1000
 
 mysql:
-  host: "127.0.0.1"
+  host: "10.192.0.5"
   port: 3306
   db_name: "maxblog_be_demo"
   user_name: "root"
@@ -31,10 +31,10 @@ mysql:
   params: "charset=utf8mb4&parseTime=True&loc=Local"
 
 redis:
-  host: "127.0.0.1"
+  host: "10.192.0.5"
   port: 6379
 
 consul:
-  host: "127.0.0.1"
+  host: "10.192.0.5"
   port: 8500
 
