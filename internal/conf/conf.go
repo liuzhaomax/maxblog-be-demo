@@ -68,7 +68,6 @@ func (mysql *Mysql) DSN() string {
 	if mysql.Password == "" {
 		mysql.Password = "123456"
 	}
-	logger.Info(mysql.Host)
 	return fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?%s",
 		mysql.UserName, mysql.Password, mysql.Host, mysql.Port, mysql.DBName, mysql.Params)
 }
