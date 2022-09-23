@@ -1,6 +1,6 @@
 SHELL = /bin/bash
 
-BuiltFile=bin/main.exe
+BuiltFile=bin/main
 env=local
 scenario=all
 

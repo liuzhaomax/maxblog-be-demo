@@ -90,7 +90,7 @@ pipeline {
                         sh """
                             export GO_HOME=${goHome}
                             export PATH=\$GO_HOME/bin:\$PATH
-                            ${goHome}/bin/go build -o bin/main internal/cmd/main.go
+                            ${goHome}/bin/go build -o bin/main -tags prod internal/cmd/main.go
                         """
                     }
                 }
