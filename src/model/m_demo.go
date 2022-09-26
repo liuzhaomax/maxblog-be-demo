@@ -22,7 +22,7 @@ func (mDemo *MDemo) QueryDemoById(req *pb.IdRequest, data *Demo) error {
 }
 
 func (mDemo *MDemo) QueryDemos(total uint32, demos *Demos) error {
-	result := mDemo.DB.Find(&demos).Limit(int(total))
+	result := mDemo.DB.Limit(int(total)).Find(&demos)
 	if result.RowsAffected == 0 {
 		return core.FormatError(803, nil)
 	}
