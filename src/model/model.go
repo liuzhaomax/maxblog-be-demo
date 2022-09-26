@@ -14,7 +14,7 @@ type Demo struct {
 	gorm.Model
 	Title   string `gorm:"varchar(100);not null"`
 	Desc    string `gorm:"varchar(300)"`
-	Content string `gorm:"varchar(30000);not null"`
+	Content string `gorm:"varchar(20000);not null"`
 	View    uint32 `gorm:"number;not null;default:0"`
 	Preview string `gorm:"varchar(300)"`
 	Ref     string `gorm:"varchar(300)"`
