@@ -7,10 +7,11 @@ import (
 )
 
 func CreateDemoData(db *gorm.DB) {
+	var quantity = 17
 	var data model.Demo
-	result := db.First(&data)
-	if result.RowsAffected == 0 {
-		for i := 0; i < 18; i++ {
+	db.Last(&data)
+	if data.ID < uint(quantity) {
+		for i := 0; i < quantity; i++ {
 			var demo model.Demo
 			demo.Title = fmt.Sprintf("小刘鸭%d", i)
 			demo.Desc = "我是一只丑小鸭"
