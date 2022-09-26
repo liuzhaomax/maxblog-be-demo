@@ -78,6 +78,7 @@ func (cfg *Config) AutoMigrate(db *gorm.DB) error {
 	if err != nil {
 		return err
 	}
+	// 测试数据
 	test_data.CreateDemoData(db)
 	return nil
 }
