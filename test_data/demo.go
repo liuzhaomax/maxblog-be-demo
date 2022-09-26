@@ -8,9 +8,9 @@ import (
 
 func CreateDemoData(db *gorm.DB) {
 	var quantity = 17
-	var data model.Demo
-	db.Last(&data)
-	if data.ID < uint(quantity) {
+	var demo model.Demo
+	result := db.Model(demo).Limit(1).Find(&demo) // 注意db.First().Error返回record not found，Find返回nil
+	if result.RowsAffected == 0 {
 		for i := 0; i < quantity; i++ {
 			var demo model.Demo
 			demo.Title = fmt.Sprintf("小刘鸭%d", i)
