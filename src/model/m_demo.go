@@ -21,8 +21,8 @@ func (mDemo *MDemo) QueryDemoById(req *pb.IdRequest, data *Demo) error {
 	return nil
 }
 
-func (mDemo *MDemo) QueryDemos(total uint32, demos *Demos) error {
-	result := mDemo.DB.Limit(int(total)).Find(&demos)
+func (mDemo *MDemo) QueryDemos(pageSize uint32, offset uint32, demos *Demos) error {
+	result := mDemo.DB.Limit(int(pageSize)).Offset(int(offset)).Find(&demos)
 	if result.RowsAffected == 0 {
 		return core.FormatError(803, nil)
 	}

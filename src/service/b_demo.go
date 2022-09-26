@@ -19,8 +19,8 @@ type BDemo struct {
 func (bDemo *BDemo) GetDemos(ctx context.Context, req *pb.CountRequest) (*pb.DemosRes, error) {
 	var demos model.Demos
 	var pageSize uint32 = 6
-	var total = pageSize * (req.Count + 1)
-	err := bDemo.MDemo.QueryDemos(total, &demos)
+	var offset = pageSize * req.Count
+	err := bDemo.MDemo.QueryDemos(pageSize, offset, &demos)
 	if err != nil {
 		bDemo.ILogger.LogFailure(core.GetFuncName(), err)
 		return nil, err
