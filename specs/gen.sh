@@ -1,3 +1,3 @@
 #!/bin/sh
 
-protoc -I . data.proto --go_out=plugins=grpc:../src
+protoc -I . demo.proto --go_out=plugins=grpc:../src

@@ -1,0 +1,31 @@
+syntax="proto3";
+
+option go_package="/pb";
+
+service DemoService {
+    rpc GetDemoById(IdRequest) returns (DemoRes);
+    rpc GetDemos(CountRequest) returns (DemosRes);
+}
+
+message IdRequest {
+    uint32 id=1;
+}
+
+message DemoRes {
+    uint32 id=1;
+    string title=2;
+    string desc=3;
+    string createdAt=4;
+    string content=5;
+    uint32 view=6;
+    string preview=7;
+    string ref=8;
+}
+
+message CountRequest {
+    uint32 count=1;
+}
+
+message DemosRes {
+    repeated DemoRes dataArr=1;
+}

@@ -60,14 +60,14 @@ func InitDB() (*gorm.DB, func(), error) {
 	return db, clean, err
 }
 
-func InitServer(ctx context.Context, service *service.BData) func() {
+func InitServer(ctx context.Context, service *service.BDemo) func() {
 	cfg := conf.GetInstanceOfConfig()
 	host := flag.String("host", cfg.Server.Host, "Enter host")
 	port := flag.Int("port", cfg.Server.Port, "Enter port")
 	flag.Parse()
 	addr := fmt.Sprintf("%s:%d", *host, *port)
 	server := grpc.NewServer()
-	pb.RegisterDataServiceServer(server, service)
+	pb.RegisterDemoServiceServer(server, service)
 	go func() {
 		listen, err := net.Listen("tcp", addr)
 		if err != nil {

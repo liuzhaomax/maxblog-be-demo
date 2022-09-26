@@ -10,6 +10,7 @@ import (
 	"io"
 	"maxblog-be-demo/internal/core"
 	"maxblog-be-demo/src/model"
+	"maxblog-be-demo/test_data"
 	"os"
 	"strings"
 	"time"
@@ -73,19 +74,10 @@ func (cfg *Config) AutoMigrate(db *gorm.DB) error {
 	if dbType == "mysql" {
 		db = db.Set("gorm:table_options", "ENGINE=InnoDB")
 	}
-	err := db.AutoMigrate(new(model.Data))
+	err := db.AutoMigrate(new(model.Demo))
 	if err != nil {
 		return err
 	}
-	cfg.createAdmin(db)
+	test_data.CreateDemoData(db)
 	return nil
-}
-
-func (cfg *Config) createAdmin(db *gorm.DB) {
-	var data model.Data
-	db.First(&data)
-	if data.ID != 1 {
-		data.Mobile = "130123456789"
-		db.Create(&data)
-	}
 }

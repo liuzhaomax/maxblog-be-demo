@@ -19,21 +19,21 @@ func InitInjector() (*Injector, func(), error) {
 	if err != nil {
 		return nil, nil, err
 	}
-	mData := &model.MData{
+	mDemo := &model.MDemo{
 		DB: db,
 	}
 	trans := &core.Trans{
 		DB: db,
 	}
 	logger := &core.Logger{}
-	bData := &service.BData{
-		MData:   mData,
+	bDemo := &service.BDemo{
+		MDemo:   mDemo,
 		Tx:      trans,
 		ILogger: logger,
 	}
 	injector := &Injector{
 		DB:      db,
-		Service: bData,
+		Service: bDemo,
 	}
 	return injector, func() {
 		cleanup()
